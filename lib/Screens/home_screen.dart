@@ -21,7 +21,6 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: const [
           CardSwiper()
-          //Text('Hoome screen')
         ],
         )
     );
