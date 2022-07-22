@@ -11,7 +11,8 @@ class Background extends StatelessWidget {
       stops: [0.2, 0.8],
       colors: [
       Color(0xFF2e305F),
-      Color(0xFF3F3F5A)]));
+      Color(0xFF3F3F5A)])
+      );
   @override
   Widget build(BuildContext context) {
     return Stack(

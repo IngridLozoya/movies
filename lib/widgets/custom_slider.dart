@@ -5,7 +5,7 @@ class CustomSlider extends StatelessWidget {
   const CustomSlider(
     {
       Key? key,
-      required this.movies
+      required this.movies, 
       }
       ) : super(key: key);
 
@@ -16,7 +16,7 @@ class CustomSlider extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: size.height,
-      color: Colors.pink[200],
+      color: const Color(0xFF2e305F),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children:  [
@@ -24,11 +24,10 @@ class CustomSlider extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: 20,
             ),
-            child: Text('Most popular movies', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
             ), 
             Expanded(
               child: ListView.builder (
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.only(top: 10.0,bottom: 5.0),
                 scrollDirection: Axis.horizontal,
                 itemCount: movies.length,
                 itemBuilder: (_, int index) {
@@ -45,7 +44,7 @@ class CustomSlider extends StatelessWidget {
                                   const AssetImage('assets/placeholder.jpg'),
                               image: NetworkImage(imageURL),
                               fit: BoxFit.cover),
-                          Text(title,style: const TextStyle(fontSize: 13),)
+                          Text(title,style: const TextStyle(fontSize: 13,color: Colors.white),),
                         ],
                       ),
                     );

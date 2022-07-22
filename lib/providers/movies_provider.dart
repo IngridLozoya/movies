@@ -9,10 +9,12 @@ class MoviesProvider extends ChangeNotifier {
 
   List<dynamic> dataMovies = [];
   List<dynamic> dataPopular = [];
+  List<dynamic> dataUpcoming = [];
 
   MoviesProvider(){
     getMovies();
     getPopular();
+    getUpcoming();
     }
 
   getMovies() async {
@@ -45,4 +47,19 @@ class MoviesProvider extends ChangeNotifier {
     }
   }
   
+
+    getUpcoming() async {
+    var url = Uri.https(_baseURL, '/3/movie/upcoming',
+        {'api_key': _apikey, 'language': _language, 'page': "1"});
+
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      print(jsonResponse);
+      dataUpcoming = jsonResponse["results"];
+      notifyListeners();
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
+  }
 }
